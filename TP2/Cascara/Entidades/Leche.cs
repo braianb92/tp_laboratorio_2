@@ -10,15 +10,19 @@ namespace Entidades_2018
 {
     public class Leche : Producto
     {
+        #region Nested Type
         public enum ETipo
         {
             Entera,
             Descremada
         }
+        #endregion
 
-        ETipo tipo;
+        #region Atributos
+        private ETipo tipo;
+        #endregion
 
-
+        #region Constructores
         /// <summary>
         /// Por defecto, TIPO será ENTERA
         /// </summary>
@@ -28,14 +32,23 @@ namespace Entidades_2018
         public Leche(EMarca marca, string patente, ConsoleColor color)
             : base(patente, marca, color)
         {
-            tipo = ETipo.Entera;
+            this.tipo = ETipo.Entera;
         }
 
-        public Leche(EMarca marca, string patente, ConsoleColor color,ETipo tipo) : this(marca, patente, color)
+        /// <summary>
+        /// Por defecto, TIPO será ENTERA
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="patente"></param>
+        /// <param name="color"></param>
+        /// <param name="tipo"></param>
+        public Leche(EMarca marca, string patente, ConsoleColor color, ETipo tipo) : this(marca, patente, color)
         {
             this.tipo = tipo;
         }
+        #endregion
 
+        #region Propiedades
         /// <summary>
         /// Las leches tienen 20 calorías
         /// </summary>
@@ -43,10 +56,16 @@ namespace Entidades_2018
         {
             get
             {
-                return 20 ;
+                return 20;
             }
         }
+        #endregion
 
+        #region Sobrecargas
+        /// <summary>
+        /// Publica todos los datos del Producto, junto los datos pertinentes a su tipo.
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -59,5 +78,6 @@ namespace Entidades_2018
 
             return sb.ToString();
         }
+        #endregion
     }
 }

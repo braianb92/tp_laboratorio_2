@@ -11,6 +11,7 @@ namespace Entidades_2018
     /// </summary>
     public abstract class Producto
     {
+        #region Nested Type
         public enum EMarca
         {
             Serenisima,
@@ -20,42 +21,63 @@ namespace Entidades_2018
             Sancor,
             Pepsico
         }
+        #endregion
 
-        EMarca marca;
-        string codigoDeBarras;
-        ConsoleColor colorPrimarioEmpaque;
+        #region Atributos
+        private EMarca marca;
+        private string codigoDeBarras;
+        private ConsoleColor colorPrimarioEmpaque;
+        #endregion
 
+        #region Constructores
+        /// <summary>
+        /// Por defecto, TIPO será ENTERA
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <param name="marca"></param>
+        /// <param name="color"></param>
         public Producto(string codigo,EMarca marca,ConsoleColor color)
         {
             this.codigoDeBarras = codigo;
             this.marca = marca;
             this.colorPrimarioEmpaque = color;
         }
+        #endregion
 
+        #region Propiedad abstracta
         /// <summary>
         /// ReadOnly: Retornará la cantidad de calorias
         /// </summary>
         protected abstract short CantidadCalorias { get; }
+        #endregion
 
+        #region Metodos
         /// <summary>
         /// Publica todos los datos del Producto.
         /// </summary>
         /// <returns></returns>
         public virtual string Mostrar()
         {
-            return this.ToString();
-        }
-
-        public static explicit operator string(Producto p)
-        {
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine($"CODIGO DE BARRAS: {p.codigoDeBarras}\r");
-            sb.AppendLine($"MARCA: {p.marca}\r");
-            sb.AppendLine($"COLOR EMPAQUE  : {p.colorPrimarioEmpaque}\r");
+            sb.AppendLine($"CODIGO DE BARRAS: {this.codigoDeBarras}");
+            sb.AppendLine($"MARCA           : {this.marca}");
+            sb.AppendLine($"COLOR EMPAQUE   : {this.colorPrimarioEmpaque}");
             sb.AppendLine("---------------------");
 
             return sb.ToString();
+            
+        }
+        #endregion
+
+        #region Operadores
+        /// <summary>
+        /// Sobrecarga del metodo ToString que muestra los datos del producto.
+        /// </summary>
+        /// /// <param name="p"></param>
+        /// <returns></returns>
+        public static explicit operator string(Producto p)
+        {
+            return p.Mostrar();
         }
 
         /// <summary>
@@ -76,7 +98,8 @@ namespace Entidades_2018
         /// <returns></returns>
         public static bool operator !=(Producto v1, Producto v2)
         {
-            return (v1.codigoDeBarras == v2.codigoDeBarras);
+            return !(v1==v2);
         }
+        #endregion
     }
 }

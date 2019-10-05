@@ -11,9 +11,12 @@ namespace Entidades_2018
     /// </summary>
     public sealed class Changuito
     {
-        List<Producto> productos;
-        int espacioDisponible;
+        #region Atributos
+        private List<Producto> productos;
+        private int espacioDisponible;
+        #endregion
 
+        #region Nested Type
         public enum ETipo
         {
             Dulce,
@@ -21,13 +24,22 @@ namespace Entidades_2018
             Snacks,
             Todos
         }
+        #endregion
 
         #region "Constructores"
+        /// <summary>
+        /// Constructor privado, Inicializa la lista de productos por defecto.
+        /// </summary>
+        /// <return></return>
         private Changuito()
         {
             this.productos = new List<Producto>();
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <return></return>
         public Changuito(int espacioDisponible ) : this()
         {
             this.espacioDisponible = espacioDisponible;
@@ -54,7 +66,7 @@ namespace Entidades_2018
         /// <param name="c">Elemento a exponer</param>
         /// <param name="ETipo">Tipos de ítems de la lista a mostrar</param>
         /// <returns></returns>
-        public string Mostrar(Changuito c, ETipo tipo)
+        public static string Mostrar(Changuito c, ETipo tipo)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -64,15 +76,18 @@ namespace Entidades_2018
                 switch (tipo)
                 {
                     case ETipo.Snacks:
-                        sb.AppendLine(producto.Mostrar());
+                        if(producto is Snacks)
+                            sb.AppendLine(producto.Mostrar());
                         break;
                     case ETipo.Dulce:
-                        sb.AppendLine(producto.Mostrar());
+                        if (producto is Dulce)
+                            sb.AppendLine(producto.Mostrar());
                         break;
                     case ETipo.Leche:
-                        sb.AppendLine(producto.Mostrar());
+                        if (producto is Leche)
+                            sb.AppendLine(producto.Mostrar());
                         break;
-                    default:
+                    case ETipo.Todos:
                         sb.AppendLine(producto.Mostrar());
                         break;
                 }
@@ -91,14 +106,19 @@ namespace Entidades_2018
         /// <returns></returns>
         public static Changuito operator +(Changuito c, Producto p)
         {
-            foreach (Producto producto in c.productos)
+            if(c.productos.Count < c.espacioDisponible)
             {
-                if (producto == p)
-                    return c;
-            }
+                foreach (Producto producto in c.productos)
+                {
+                    if (producto == p)
+                        return c;
+                }
 
-            c.productos.Add(p);
+                c.productos.Add(p);
+                return c;
+            }
             return c;
+            
         }
         /// <summary>
         /// Quitará un elemento de la lista

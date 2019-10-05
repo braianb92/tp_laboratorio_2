@@ -16,3 +16,4 @@ C:\Users\baldi\Documents\UTN_WorkSpace\tp_laboratorio_2\TP2\Cascara\Entidades\ob
 C:\Users\baldi\Documents\UTN_WorkSpace\tp_laboratorio_2\TP2\Cascara\Entidades\obj\Debug\Entidades.pdb
 C:\Users\baldi\Documents\UTN_WorkSpace\tp_laboratorio_2\TP2\Cascara\Entidades\bin\Debug\Entidades.dll
 C:\Users\baldi\Documents\UTN_WorkSpace\tp_laboratorio_2\TP2\Cascara\Entidades\bin\Debug\Entidades.pdb
+C:\Users\baldi\Documents\UTN_WorkSpace\tp_laboratorio_2\TP2\Cascara\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache

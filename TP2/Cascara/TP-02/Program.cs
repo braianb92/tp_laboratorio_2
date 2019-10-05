@@ -18,6 +18,7 @@ namespace TP_02_2018
             // Nombre del alumno
             Console.WriteLine("Braian Baldino");
 
+            // Instancia de la clase Chanquito
             Changuito changoDeCompras = new Changuito(6);
 
             Dulce c1 = new Dulce(Producto.EMarca.Sancor, "ASD012", ConsoleColor.Black);
@@ -48,25 +49,25 @@ namespace TP_02_2018
             // Quito un item y muestro
             changoDeCompras -= c1;
 
-            Console.WriteLine(changoDeCompras.ToString());
+            Console.WriteLine(c1.Mostrar());
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
 
             // Muestro solo Dulces
-            Console.WriteLine(changoDeCompras.Mostrar(changoDeCompras,Changuito.ETipo.Dulce));
+            Console.WriteLine(Changuito.Mostrar(changoDeCompras,Changuito.ETipo.Dulce));
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
 
             // Muestro solo Leches
-            Console.WriteLine(changoDeCompras.Mostrar(changoDeCompras, Changuito.ETipo.Leche)); ;
+            Console.WriteLine(Changuito.Mostrar(changoDeCompras, Changuito.ETipo.Leche)); ;
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();
 
             // Muestro solo Snacks
-            Console.WriteLine(changoDeCompras.Mostrar(changoDeCompras, Changuito.ETipo.Snacks));
+            Console.WriteLine(Changuito.Mostrar(changoDeCompras, Changuito.ETipo.Snacks));
             Console.WriteLine("<-------------PRESIONE UNA TECLA PARA SALIR------------->");
             Console.ReadKey();
         }
