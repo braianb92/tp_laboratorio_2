@@ -9,27 +9,53 @@ namespace Clases_Abstractas
 {
     public abstract class Persona
     {
+        #region Enum Nested Type
         public enum ENacionalidad
         {
             Argentino,
             Extranjero
         }
+        #endregion
 
+        #region Atributes
         private string nombre;
         private string apellido;
         private ENacionalidad nacionalidad;
         private int dni;
+        #endregion
 
+        #region Constructors
+        public Persona (string nombre,string apellido,ENacionalidad nacionalidad)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            Nacionalidad = nacionalidad;
+        }
+
+        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
+            : this(nombre, apellido, nacionalidad)
+        {         
+            DNI = dni;
+        }
+
+        public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
+            : this(nombre,apellido,nacionalidad)
+        {           
+            StringToDni = dni;
+        }
+        #endregion
+
+        #region Properties
         public string Nombre
         {
             get { return this.nombre; }
-            set { this.nombre = value; }
+            set { this.nombre = ValidarNombreApellido(value); }
         }
 
         public string Apellido
         {
             get { return this.apellido; }
-            set { this.apellido = value; }
+            set { this.apellido = ValidarNombreApellido(value); ; }
         }
 
         public ENacionalidad Nacionalidad
@@ -54,7 +80,9 @@ namespace Clases_Abstractas
                 this.dni = ValidarDni(this.Nacionalidad, value);
             }
         }
+        #endregion
 
+        #region Private Methods (Validations)
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
             switch (nacionalidad)
@@ -88,5 +116,27 @@ namespace Clases_Abstractas
                 throw new DniInvalidoException();
             }
         }
+
+        private string ValidarNombreApellido(string dato)
+        {
+            if (!string.IsNullOrEmpty(dato) && !string.IsNullOrWhiteSpace(dato))
+                return dato;
+            else
+                return "Unknown";
+        }
+        #endregion
+
+        #region Override
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Nombre);
+            sb.AppendLine(Apellido);
+            sb.AppendLine(DNI.ToString());
+            sb.AppendLine(Nacionalidad.ToString());
+            return sb.ToString();
+        }
+        #endregion
+
     }
 }
