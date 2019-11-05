@@ -74,8 +74,12 @@ namespace Clases_Instanciables
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(Clase.ToString());
-            sb.AppendLine(Instructor.ToString());
+            sb.AppendLine("JORNADA:");
+            sb.AppendLine("CLASE DE "+ Clase.ToString());
+            sb.Append(" POR NOMBRE COMPLETO: "+ Instructor);
+            sb.AppendLine("NACIONALIDAD: " + Instructor.Nacionalidad);
+            sb.AppendLine("");
+            sb.AppendLine("ALUMNOS:");
             foreach (Alumno alumno in Alumnos)
             {
                 sb.AppendLine(alumno.ToString());

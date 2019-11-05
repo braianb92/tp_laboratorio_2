@@ -85,20 +85,22 @@ namespace Clases_Abstractas
         #region Private Methods (Validations)
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
+            string excMessage = "La nacionalidad no se condice con el numero de DNI";
+
             switch (nacionalidad)
             {
                 case ENacionalidad.Argentino:
                     if (dato < 1 || dato > 89999999)
                     {
                         dato = 0;
-                        throw new NacionalidadInvalidaException("DNI no valido para Argentina");
+                        throw new NacionalidadInvalidaException(excMessage);
                     }
                     break;
                 case ENacionalidad.Extranjero:
                     if (dato < 90000000 || dato > 99999999)
                     {
                         dato = 0;
-                        throw new NacionalidadInvalidaException("DNI no valido para Extranjero");
+                        throw new NacionalidadInvalidaException(excMessage);
                     }
                     break;
             }
@@ -130,10 +132,9 @@ namespace Clases_Abstractas
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(Nombre);
-            sb.AppendLine(Apellido);
-            sb.AppendLine(DNI.ToString());
-            sb.AppendLine(Nacionalidad.ToString());
+            sb.AppendLine("NOMBRE COMPLETO: " + Nombre + ", " + Apellido);
+            sb.AppendLine("NACIONALIDAD: " + Nacionalidad.ToString());
+            sb.AppendLine("DNI: " + DNI.ToString());
             return sb.ToString();
         }
         #endregion

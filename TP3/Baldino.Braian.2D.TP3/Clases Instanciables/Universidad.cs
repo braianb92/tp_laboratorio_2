@@ -25,6 +25,15 @@ namespace Clases_Instanciables
         private List<Jornada> jornadas;
         #endregion
 
+        #region Constructors
+        public Universidad()
+        {
+            Alumnos = new List<Alumno>();
+            Profesores = new List<Profesor>();
+            Jornadas = new List<Jornada>();
+        }
+        #endregion
+
         #region Properties
         public List<Alumno> Alumnos
         {
@@ -44,7 +53,7 @@ namespace Clases_Instanciables
             set { jornadas = value; }
         }
 
-        public Jornada this [int i]
+        public Jornada this[int i]
         {
             get
             {
@@ -73,7 +82,7 @@ namespace Clases_Instanciables
             StringBuilder sb = new StringBuilder();
             foreach (Alumno a in Alumnos)
             {
-                sb.AppendLine(a.ToString());   
+                sb.AppendLine(a.ToString());
             }
 
             foreach (Profesor p in Profesores)
@@ -96,7 +105,7 @@ namespace Clases_Instanciables
         #endregion
 
         #region Operator Overloads
-        public static bool operator == (Universidad g,Alumno a)
+        public static bool operator ==(Universidad g, Alumno a)
         {
             foreach (Alumno item in g.Alumnos)
             {
@@ -111,7 +120,7 @@ namespace Clases_Instanciables
             return !(g == a);
         }
 
-        public static bool operator == (Universidad g, Profesor p)
+        public static bool operator ==(Universidad g, Profesor p)
         {
             foreach (Jornada jornada in g.Jornadas)
             {
@@ -122,11 +131,11 @@ namespace Clases_Instanciables
         }
 
         public static bool operator !=(Universidad g, Profesor p)
-        {          
-            return !(g==p);
+        {
+            return !(g == p);
         }
 
-        public static Profesor operator == (Universidad u, EClases clase)
+        public static Profesor operator ==(Universidad u, EClases clase)
         {
             foreach (Profesor profesor in u.Profesores)
             {
@@ -140,13 +149,52 @@ namespace Clases_Instanciables
 
         public static Profesor operator !=(Universidad u, EClases clase)
         {
-            foreach (Profesor profesor in u.Profesores)
+            Profesor profesor = null;
+
+            foreach (Profesor p in u.Profesores)
             {
-                if (profesor == clase)
-                    return profesor;
+                if (p != clase)
+                    return p;
             }
 
-            throw new SinProfesorException();
+            return profesor;
+        }
+
+        public static Universidad operator + (Universidad g, EClases clase)
+        {
+            Jornada jornada = new Jornada(clase, (g == clase));
+
+            foreach (Alumno alumno in g.Alumnos)
+            {
+                if(alumno == clase)
+                    jornada.Alumnos.Add(alumno);
+            }
+
+            g.Jornadas.Add(jornada);
+            return g;
+        }
+
+        public static Universidad operator + (Universidad u, Alumno a)
+        {
+           if(u!=a)
+           {
+                u.Alumnos.Add(a);
+                return u;
+           }
+
+            throw new AlumnoRepetidoException();
+
+        }
+
+        public static Universidad operator + (Universidad u,Profesor i)
+        {
+            foreach (Profesor profesor in u.Profesores)
+            {
+                if (profesor == i)
+                    return u;
+            }
+            u.Profesores.Add(i);
+            return u;
         }
         #endregion
 

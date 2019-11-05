@@ -60,8 +60,9 @@ namespace Clases_Instanciables
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(base.MostrarDatos());
-            sb.AppendLine($"{claseQueToma}");
-            sb.AppendLine($"{estadoCuenta}");
+            sb.AppendLine($"ESTADO DE CUENTA: {estadoCuenta}");
+            sb.AppendLine($"TOMA CLASES DE {claseQueToma}");
+            sb.AppendLine("<------------------------------>");
             return sb.ToString();
         }
         #endregion
