@@ -73,11 +73,8 @@ namespace Clases_Instanciables
         #region Methods
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("JORNADA:");
-            sb.AppendLine("CLASE DE "+ Clase.ToString());
-            sb.Append(" POR NOMBRE COMPLETO: "+ Instructor);
-            sb.AppendLine("NACIONALIDAD: " + Instructor.Nacionalidad);
+            StringBuilder sb = new StringBuilder();           
+            sb.AppendLine($"CLASE DE {Clase.ToString()} POR NOMBRE COMPLETO: {Instructor}");
             sb.AppendLine("");
             sb.AppendLine("ALUMNOS:");
             foreach (Alumno alumno in Alumnos)

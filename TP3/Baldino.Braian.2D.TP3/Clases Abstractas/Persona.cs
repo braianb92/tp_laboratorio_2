@@ -132,7 +132,7 @@ namespace Clases_Abstractas
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("NOMBRE COMPLETO: " + Nombre + ", " + Apellido);
+            sb.AppendLine(Nombre + ", " + Apellido);
             sb.AppendLine("NACIONALIDAD: " + Nacionalidad.ToString());
             sb.AppendLine("DNI: " + DNI.ToString());
             return sb.ToString();

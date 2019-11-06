@@ -80,21 +80,13 @@ namespace Clases_Instanciables
         private string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (Alumno a in Alumnos)
-            {
-                sb.AppendLine(a.ToString());
-            }
 
-            foreach (Profesor p in Profesores)
-            {
-                sb.AppendLine(p.ToString());
-            }
-
+            sb.AppendLine("JORNADA:");
             foreach (Jornada j in Jornadas)
             {
                 sb.AppendLine(j.ToString());
+                sb.AppendLine("<---------------------------->:");
             }
-
             return sb.ToString();
         }
 

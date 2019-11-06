@@ -62,7 +62,6 @@ namespace Clases_Instanciables
             sb.AppendLine(base.MostrarDatos());
             sb.AppendLine($"ESTADO DE CUENTA: {estadoCuenta}");
             sb.AppendLine($"TOMA CLASES DE {claseQueToma}");
-            sb.AppendLine("<------------------------------>");
             return sb.ToString();
         }
         #endregion
