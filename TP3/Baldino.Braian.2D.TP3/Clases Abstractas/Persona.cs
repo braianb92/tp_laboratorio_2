@@ -25,6 +25,12 @@ namespace Clases_Abstractas
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor que toma 3 parametros.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="nacionalidad"></param>
         public Persona (string nombre,string apellido,ENacionalidad nacionalidad)
         {
             Nombre = nombre;
@@ -32,12 +38,26 @@ namespace Clases_Abstractas
             Nacionalidad = nacionalidad;
         }
 
+        /// <summary>
+        /// Constructor que toma 4 parametros. Inicializando 'dni' como int.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
             : this(nombre, apellido, nacionalidad)
         {         
             DNI = dni;
         }
 
+        /// <summary>
+        /// Constructor que toma 4 parametros. Inicializando 'dni' como string.
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             : this(nombre,apellido,nacionalidad)
         {           
@@ -46,24 +66,36 @@ namespace Clases_Abstractas
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Propiedad Nombre
+        /// </summary>
         public string Nombre
         {
             get { return this.nombre; }
             set { this.nombre = ValidarNombreApellido(value); }
         }
 
+        /// <summary>
+        /// Propiedad Apellido
+        /// </summary>
         public string Apellido
         {
             get { return this.apellido; }
             set { this.apellido = ValidarNombreApellido(value); ; }
         }
 
+        /// <summary>
+        /// Propiedad Nacionalidad
+        /// </summary>
         public ENacionalidad Nacionalidad
         {
             get { return this.nacionalidad; }
             set { this.nacionalidad = value; }
         }
 
+        /// <summary>
+        /// Propiedad DNI valida int
+        /// </summary>
         public int DNI
         {
             get { return this.dni; }
@@ -73,6 +105,9 @@ namespace Clases_Abstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad Dni. Valida string
+        /// </summary>
         public string StringToDni
         {
             set
@@ -83,6 +118,12 @@ namespace Clases_Abstractas
         #endregion
 
         #region Private Methods (Validations)
+        /// <summary>
+        /// Metodo privado que valida DNI como int.
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
             string excMessage = "La nacionalidad no se condice con el numero de DNI";
@@ -107,6 +148,12 @@ namespace Clases_Abstractas
             return dato;
         }
 
+        /// <summary>
+        /// Metodo privado que valida DNI como string
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             if (!string.IsNullOrEmpty(dato) && int.TryParse(dato, out int datoInt))
@@ -119,6 +166,11 @@ namespace Clases_Abstractas
             }
         }
 
+        /// <summary>
+        /// Metodo privado que valida nombre-Apellido
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private string ValidarNombreApellido(string dato)
         {
             if (!string.IsNullOrEmpty(dato) && !string.IsNullOrWhiteSpace(dato))
@@ -129,6 +181,10 @@ namespace Clases_Abstractas
         #endregion
 
         #region Override
+        /// <summary>
+        /// Muestra Nombre y apellido, Nacionalidad y DNI.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

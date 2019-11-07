@@ -97,26 +97,26 @@ namespace Salida_por_Pantalla
 
             Console.Clear();
 
-            //try
-            //{
-            //    Universidad.Guardar(uni);
-            //    Console.WriteLine("Archivo de Universidad guardado.");
-            //}
-            //catch (ArchivosException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
-            //try
-            //{
-            //    int jornada = 0;
-            //    Jornada.Guardar(uni[jornada]);
-            //    Console.WriteLine("Archivo de Jornada {0} guardado.", jornada);
-            //    //Console.WriteLine(Jornada.Leer());
-            //}
-            //catch (ArchivosException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+            try
+            {
+                Universidad.Guardar(uni);
+                Console.WriteLine("Archivo de Universidad guardado.");
+            }
+            catch (ArchivosException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                int jornada = 1;
+                Jornada.Guardar(uni[jornada]);
+                Console.WriteLine("Archivo de Jornada {0} guardado.", jornada);
+                Console.WriteLine(Jornada.Leer());
+            }
+            catch (ArchivosException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.ReadKey();
 

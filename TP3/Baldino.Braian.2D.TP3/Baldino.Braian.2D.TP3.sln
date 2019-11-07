@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archivos", "Archivos\Archiv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salida por Pantalla", "Salida por Pantalla\Salida por Pantalla.csproj", "{67691A74-3534-4F37-AB18-3441EF0AEC8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Unitarios", "Test Unitarios\Test Unitarios.csproj", "{91A2C1A0-0298-4143-9DE5-5DE05E7265F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{67691A74-3534-4F37-AB18-3441EF0AEC8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67691A74-3534-4F37-AB18-3441EF0AEC8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67691A74-3534-4F37-AB18-3441EF0AEC8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A2C1A0-0298-4143-9DE5-5DE05E7265F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A2C1A0-0298-4143-9DE5-5DE05E7265F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A2C1A0-0298-4143-9DE5-5DE05E7265F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A2C1A0-0298-4143-9DE5-5DE05E7265F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

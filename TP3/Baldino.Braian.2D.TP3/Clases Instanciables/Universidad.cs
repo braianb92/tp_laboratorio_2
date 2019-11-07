@@ -1,4 +1,5 @@
-﻿using Excepciones;
+﻿using Archivos;
+using Excepciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,14 +68,39 @@ namespace Clases_Instanciables
         #endregion
 
         #region Methods
-        public bool Guardar(Universidad uni)
+        public static bool Guardar(Universidad uni)
         {
-            return true;
+            Xml<Universidad> xml = new Xml<Universidad>();
+            try
+            {
+                if (xml.Guardar("Universidad.xml", uni))
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+            return false;
         }
 
-        public Universidad Leer()
+        public static bool Leer()
         {
-            return this;
+            Universidad aux;
+            Xml<Universidad> xml = new Xml<Universidad>();
+            try
+            {
+                if (xml.Leer("Universidad.xml", out aux))
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+            return false;
         }
 
         private string MostrarDatos()
@@ -101,7 +127,7 @@ namespace Clases_Instanciables
         {
             foreach (Alumno item in g.Alumnos)
             {
-                if (item == a)
+                if (item.DNI == a.DNI)
                     return true;
             }
             return false;
