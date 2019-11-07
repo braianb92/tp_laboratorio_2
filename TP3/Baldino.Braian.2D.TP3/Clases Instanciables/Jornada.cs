@@ -106,7 +106,6 @@ namespace Clases_Instanciables
         {
             StringBuilder sb = new StringBuilder();           
             sb.AppendLine($"CLASE DE {Clase.ToString()} POR NOMBRE COMPLETO: {Instructor}");
-            sb.AppendLine("");
             sb.AppendLine("ALUMNOS:");
             foreach (Alumno alumno in Alumnos)
             {
