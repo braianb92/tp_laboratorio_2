@@ -24,6 +24,8 @@ namespace Clases_Instanciables
         #endregion
 
         #region Constructors
+        public Alumno() : base() { }
+
         /// <summary>
         /// Constructor que toma 6 parametros y llama al contructor base de clase Universitario.
         /// </summary>

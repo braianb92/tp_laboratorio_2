@@ -23,6 +23,8 @@ namespace Clases_Instanciables
             random = new Random();
         }
 
+        public Profesor() : base () { }
+
         /// <summary>
         /// Constructor que recibe 5 parametros, inicializa la cola de clases y asigna clases random a la cola.
         /// </summary>

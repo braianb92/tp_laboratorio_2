@@ -13,6 +13,8 @@ namespace Clases_Abstractas
         #endregion
 
         #region Constructors
+        public Universitario() : base () { }
+
         /// <summary>
         /// Constructor de 5 parametros. Reutiliza constructor base clase Persona.
         /// </summary>

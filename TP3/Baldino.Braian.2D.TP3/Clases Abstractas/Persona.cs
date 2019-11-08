@@ -25,6 +25,8 @@ namespace Clases_Abstractas
         #endregion
 
         #region Constructors
+        public Persona() { }
+
         /// <summary>
         /// Constructor que toma 3 parametros.
         /// </summary>

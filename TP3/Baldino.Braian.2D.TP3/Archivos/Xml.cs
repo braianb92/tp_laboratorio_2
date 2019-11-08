@@ -14,46 +14,61 @@ namespace Archivos
     {
         public bool Guardar(string archivo, T datos)
         {
-            bool aux = false;
-            if (!string.IsNullOrEmpty(archivo) && datos != null)
-            {
-                XmlSerializer xs = new XmlSerializer(typeof(T));
-                try
-                {
-                    string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                    StreamWriter sw = new StreamWriter(Path.Combine(desktop, archivo));
-                    xs.Serialize(sw, datos);
-                    aux = true;
-                }
-                catch (Exception e)
-                {
-                    throw new ArchivosException(e);
-                }
-            }
-            return aux;
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            XmlTextWriter xmlWriter = new XmlTextWriter(path + "/" + archivo, Encoding.ASCII);
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
 
+            serializer.Serialize(xmlWriter, datos);
+            xmlWriter.Close();
+            return true;
+            //if (!string.IsNullOrEmpty(archivo) && datos != null)
+            //{                
+            //    try
+            //    {
+            //        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //        XmlTextWriter xmlWriter = new XmlTextWriter(path + "/" + archivo, Encoding.ASCII);
+            //        XmlSerializer serializer = new XmlSerializer(typeof(T));
+                    
+            //        serializer.Serialize(xmlWriter, datos);
+            //        xmlWriter.Close();
+            //        return true;
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        throw new ArchivosException(e);
+            //    }
+            //}
+            //return false;
         }
 
         public bool Leer(string archivo, out T datos)
-        {
-            bool aux = false;
+        {          
             datos = default(T);
             if (!string.IsNullOrEmpty(archivo) && datos != null)
             {
-                XmlSerializer xs = new XmlSerializer(typeof(T));
                 try
                 {
+                    string file = string.Empty;
                     string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                    StreamReader sr = new StreamReader(Path.Combine(desktop, archivo));
-                    datos = (T)xs.Deserialize(sr);
-                    aux = true;
+
+                    foreach (string item in Directory.GetFiles(desktop))
+                    {
+                        if (item == archivo)
+                            file = item;
+                    } 
+
+                    XmlTextReader xmlReader = new XmlTextReader(file);
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
+                    datos = (T)serializer.Deserialize(xmlReader);
+                    xmlReader.Close();
+                    return true;
                 }
                 catch (Exception e)
                 {
                     throw new ArchivosException(e);
                 }
             }
-            return aux;
+            return false;
         }
     }
 }

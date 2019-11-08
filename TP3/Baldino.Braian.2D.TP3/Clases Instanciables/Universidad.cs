@@ -79,15 +79,8 @@ namespace Clases_Instanciables
         public static bool Guardar(Universidad uni)
         {
             Xml<Universidad> xml = new Xml<Universidad>();
-            try
-            {
-                if (xml.Guardar("Universidad.xml", uni))
-                    return true;
-            }
-            catch (Exception e)
-            {
-                throw new ArchivosException(e);
-            }
+            if (xml.Guardar("Universidad.xml", uni))
+                return true;
             return false;
         }
 
@@ -97,19 +90,12 @@ namespace Clases_Instanciables
         /// <returns></returns>
         public static bool Leer()
         {
-            Universidad aux;
             Xml<Universidad> xml = new Xml<Universidad>();
-            try
+            if (xml.Leer("Universidad.xml", out Universidad universidad))
             {
-                if (xml.Leer("Universidad.xml", out aux))
-                {
-                    return true;
-                }
-            }
-            catch (Exception e)
-            {
-                throw new ArchivosException(e);
-            }
+                Console.WriteLine(universidad.ToString());
+                return true;
+            }                
             return false;
         }
 
