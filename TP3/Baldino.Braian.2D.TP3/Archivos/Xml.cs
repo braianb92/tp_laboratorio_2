@@ -14,31 +14,24 @@ namespace Archivos
     {
         public bool Guardar(string archivo, T datos)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            XmlTextWriter xmlWriter = new XmlTextWriter(path + "/" + archivo, Encoding.ASCII);
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            if (!string.IsNullOrEmpty(archivo) && datos != null)
+            {
+                try
+                {
+                    string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    XmlTextWriter xmlWriter = new XmlTextWriter(path + "/" + archivo, Encoding.ASCII);
+                    XmlSerializer serializer = new XmlSerializer(typeof(T));
 
-            serializer.Serialize(xmlWriter, datos);
-            xmlWriter.Close();
-            return true;
-            //if (!string.IsNullOrEmpty(archivo) && datos != null)
-            //{                
-            //    try
-            //    {
-            //        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            //        XmlTextWriter xmlWriter = new XmlTextWriter(path + "/" + archivo, Encoding.ASCII);
-            //        XmlSerializer serializer = new XmlSerializer(typeof(T));
-                    
-            //        serializer.Serialize(xmlWriter, datos);
-            //        xmlWriter.Close();
-            //        return true;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        throw new ArchivosException(e);
-            //    }
-            //}
-            //return false;
+                    serializer.Serialize(xmlWriter, datos);
+                    xmlWriter.Close();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    throw new ArchivosException(e);
+                }
+            }
+            return false;
         }
 
         public bool Leer(string archivo, out T datos)
