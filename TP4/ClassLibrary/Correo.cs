@@ -19,7 +19,10 @@ namespace Entidades
             set { paquetes = value; }
         }
 
-        public Correo() { }
+        public Correo()
+        {
+            paquetes = new List<Paquete>();
+        }
 
         public void FinEntregas()
         {

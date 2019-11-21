@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupEstados = new System.Windows.Forms.GroupBox();
-            this.groupPaquete = new System.Windows.Forms.GroupBox();
-            this.listBoxIngresado = new System.Windows.Forms.ListBox();
-            this.listBoxEnViaje = new System.Windows.Forms.ListBox();
-            this.listBoxEntregado = new System.Windows.Forms.ListBox();
-            this.lblIngresado = new System.Windows.Forms.Label();
-            this.lblEnViaje = new System.Windows.Forms.Label();
             this.Entregado = new System.Windows.Forms.Label();
-            this.richTextBox = new System.Windows.Forms.RichTextBox();
-            this.lblTracking = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lblEnViaje = new System.Windows.Forms.Label();
+            this.lblIngresado = new System.Windows.Forms.Label();
+            this.listBoxEntregado = new System.Windows.Forms.ListBox();
+            this.listBoxEnViaje = new System.Windows.Forms.ListBox();
+            this.listBoxIngresado = new System.Windows.Forms.ListBox();
+            this.groupPaquete = new System.Windows.Forms.GroupBox();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.lblTracking = new System.Windows.Forms.Label();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.groupEstados.SuspendLayout();
             this.groupPaquete.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +62,57 @@
             this.groupEstados.TabStop = false;
             this.groupEstados.Text = "Estados Paquetes";
             // 
+            // Entregado
+            // 
+            this.Entregado.AutoSize = true;
+            this.Entregado.Location = new System.Drawing.Point(536, 34);
+            this.Entregado.Name = "Entregado";
+            this.Entregado.Size = new System.Drawing.Size(56, 13);
+            this.Entregado.TabIndex = 5;
+            this.Entregado.Text = "Entregado";
+            // 
+            // lblEnViaje
+            // 
+            this.lblEnViaje.AutoSize = true;
+            this.lblEnViaje.Location = new System.Drawing.Point(271, 34);
+            this.lblEnViaje.Name = "lblEnViaje";
+            this.lblEnViaje.Size = new System.Drawing.Size(46, 13);
+            this.lblEnViaje.TabIndex = 4;
+            this.lblEnViaje.Text = "En Viaje";
+            // 
+            // lblIngresado
+            // 
+            this.lblIngresado.AutoSize = true;
+            this.lblIngresado.Location = new System.Drawing.Point(17, 34);
+            this.lblIngresado.Name = "lblIngresado";
+            this.lblIngresado.Size = new System.Drawing.Size(54, 13);
+            this.lblIngresado.TabIndex = 3;
+            this.lblIngresado.Text = "Ingresado";
+            // 
+            // listBoxEntregado
+            // 
+            this.listBoxEntregado.FormattingEnabled = true;
+            this.listBoxEntregado.Location = new System.Drawing.Point(539, 53);
+            this.listBoxEntregado.Name = "listBoxEntregado";
+            this.listBoxEntregado.Size = new System.Drawing.Size(203, 225);
+            this.listBoxEntregado.TabIndex = 2;
+            // 
+            // listBoxEnViaje
+            // 
+            this.listBoxEnViaje.FormattingEnabled = true;
+            this.listBoxEnViaje.Location = new System.Drawing.Point(274, 53);
+            this.listBoxEnViaje.Name = "listBoxEnViaje";
+            this.listBoxEnViaje.Size = new System.Drawing.Size(203, 225);
+            this.listBoxEnViaje.TabIndex = 1;
+            // 
+            // listBoxIngresado
+            // 
+            this.listBoxIngresado.FormattingEnabled = true;
+            this.listBoxIngresado.Location = new System.Drawing.Point(17, 53);
+            this.listBoxIngresado.Name = "listBoxIngresado";
+            this.listBoxIngresado.Size = new System.Drawing.Size(203, 225);
+            this.listBoxIngresado.TabIndex = 0;
+            // 
             // groupPaquete
             // 
             this.groupPaquete.Controls.Add(this.btnMostrarTodos);
@@ -77,74 +128,40 @@
             this.groupPaquete.TabStop = false;
             this.groupPaquete.Text = "Paquete";
             // 
-            // listBoxIngresado
+            // btnMostrarTodos
             // 
-            this.listBoxIngresado.FormattingEnabled = true;
-            this.listBoxIngresado.Location = new System.Drawing.Point(17, 53);
-            this.listBoxIngresado.Name = "listBoxIngresado";
-            this.listBoxIngresado.Size = new System.Drawing.Size(203, 225);
-            this.listBoxIngresado.TabIndex = 0;
+            this.btnMostrarTodos.Location = new System.Drawing.Point(197, 106);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(106, 34);
+            this.btnMostrarTodos.TabIndex = 5;
+            this.btnMostrarTodos.Text = "Mostrar Todos";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.BtnMostrarTodos_Click);
             // 
-            // listBoxEnViaje
+            // btnAgregar
             // 
-            this.listBoxEnViaje.FormattingEnabled = true;
-            this.listBoxEnViaje.Location = new System.Drawing.Point(274, 53);
-            this.listBoxEnViaje.Name = "listBoxEnViaje";
-            this.listBoxEnViaje.Size = new System.Drawing.Size(203, 225);
-            this.listBoxEnViaje.TabIndex = 1;
+            this.btnAgregar.Location = new System.Drawing.Point(197, 45);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(106, 34);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // listBoxEntregado
+            // textBox1
             // 
-            this.listBoxEntregado.FormattingEnabled = true;
-            this.listBoxEntregado.Location = new System.Drawing.Point(539, 53);
-            this.listBoxEntregado.Name = "listBoxEntregado";
-            this.listBoxEntregado.Size = new System.Drawing.Size(203, 225);
-            this.listBoxEntregado.TabIndex = 2;
+            this.textBox1.Location = new System.Drawing.Point(27, 116);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(141, 20);
+            this.textBox1.TabIndex = 3;
             // 
-            // lblIngresado
+            // maskedTextBox1
             // 
-            this.lblIngresado.AutoSize = true;
-            this.lblIngresado.Location = new System.Drawing.Point(17, 34);
-            this.lblIngresado.Name = "lblIngresado";
-            this.lblIngresado.Size = new System.Drawing.Size(54, 13);
-            this.lblIngresado.TabIndex = 3;
-            this.lblIngresado.Text = "Ingresado";
-            // 
-            // lblEnViaje
-            // 
-            this.lblEnViaje.AutoSize = true;
-            this.lblEnViaje.Location = new System.Drawing.Point(271, 34);
-            this.lblEnViaje.Name = "lblEnViaje";
-            this.lblEnViaje.Size = new System.Drawing.Size(46, 13);
-            this.lblEnViaje.TabIndex = 4;
-            this.lblEnViaje.Text = "En Viaje";
-            // 
-            // Entregado
-            // 
-            this.Entregado.AutoSize = true;
-            this.Entregado.Location = new System.Drawing.Point(536, 34);
-            this.Entregado.Name = "Entregado";
-            this.Entregado.Size = new System.Drawing.Size(56, 13);
-            this.Entregado.TabIndex = 5;
-            this.Entregado.Text = "Entregado";
-            // 
-            // richTextBox
-            // 
-            this.richTextBox.Enabled = false;
-            this.richTextBox.Location = new System.Drawing.Point(12, 311);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(433, 158);
-            this.richTextBox.TabIndex = 2;
-            this.richTextBox.Text = "";
-            // 
-            // lblTracking
-            // 
-            this.lblTracking.AutoSize = true;
-            this.lblTracking.Location = new System.Drawing.Point(24, 24);
-            this.lblTracking.Name = "lblTracking";
-            this.lblTracking.Size = new System.Drawing.Size(63, 13);
-            this.lblTracking.TabIndex = 0;
-            this.lblTracking.Text = "Tracking ID";
+            this.maskedTextBox1.Location = new System.Drawing.Point(27, 49);
+            this.maskedTextBox1.Mask = "000.000.000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(141, 20);
+            this.maskedTextBox1.TabIndex = 2;
             // 
             // lblDireccion
             // 
@@ -155,38 +172,23 @@
             this.lblDireccion.TabIndex = 1;
             this.lblDireccion.Text = "Direccion";
             // 
-            // maskedTextBox1
+            // lblTracking
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(27, 49);
-            this.maskedTextBox1.Mask = "000.000.000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(141, 20);
-            this.maskedTextBox1.TabIndex = 2;
+            this.lblTracking.AutoSize = true;
+            this.lblTracking.Location = new System.Drawing.Point(24, 24);
+            this.lblTracking.Name = "lblTracking";
+            this.lblTracking.Size = new System.Drawing.Size(63, 13);
+            this.lblTracking.TabIndex = 0;
+            this.lblTracking.Text = "Tracking ID";
             // 
-            // textBox1
+            // richTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(27, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(197, 45);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(106, 34);
-            this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnMostrarTodos
-            // 
-            this.btnMostrarTodos.Location = new System.Drawing.Point(197, 106);
-            this.btnMostrarTodos.Name = "btnMostrarTodos";
-            this.btnMostrarTodos.Size = new System.Drawing.Size(106, 34);
-            this.btnMostrarTodos.TabIndex = 5;
-            this.btnMostrarTodos.Text = "Mostrar Todos";
-            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.richTextBox.Enabled = false;
+            this.richTextBox.Location = new System.Drawing.Point(12, 311);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(433, 158);
+            this.richTextBox.TabIndex = 2;
+            this.richTextBox.Text = "";
             // 
             // CorreoUtn
             // 
@@ -200,6 +202,7 @@
             this.Name = "CorreoUtn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Correo UTN por Braian.Baldino.2ºD";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CorreoUtn_FormClosing);
             this.groupEstados.ResumeLayout(false);
             this.groupEstados.PerformLayout();
             this.groupPaquete.ResumeLayout(false);

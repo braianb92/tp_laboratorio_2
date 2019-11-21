@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "ClassLibrary\E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainCorreo", "MainCorreo\MainCorreo.csproj", "{117D194B-0FAB-4E27-AC92-3D8F23561799}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Unitarios", "Test Unitarios\Test Unitarios.csproj", "{40654B1C-9F1B-4F98-97E3-4268AED89A7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{117D194B-0FAB-4E27-AC92-3D8F23561799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{117D194B-0FAB-4E27-AC92-3D8F23561799}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{117D194B-0FAB-4E27-AC92-3D8F23561799}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40654B1C-9F1B-4F98-97E3-4268AED89A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40654B1C-9F1B-4F98-97E3-4268AED89A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40654B1C-9F1B-4F98-97E3-4268AED89A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40654B1C-9F1B-4F98-97E3-4268AED89A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
