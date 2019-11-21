@@ -29,7 +29,7 @@ namespace Entidades
         {
             string sql = "INSERT INTO " + "Paquetes" + " (direccionEntrega,trackingID,alumno) ";
 
-            sql = sql + "SELECT '" + paquete.DireccionEntrega + "','" + paquete.TrackingID + "','" + paquete.Alumno + "' UNION ALL ";
+            sql = sql + "SELECT '" + paquete.DireccionEntrega + "','" + paquete.TrackingID + "','" + "Baldino Braian" + "' UNION ALL' ";
 
             try
             {

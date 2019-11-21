@@ -26,7 +26,6 @@ namespace Entidades
         private string direccionEntrega;
         private EEstado estado;
         private string trackingID;
-        private string alumno;
         #endregion
 
         #region Events
@@ -38,12 +37,6 @@ namespace Entidades
         {
             get { return direccionEntrega; }
             set { direccionEntrega = value; }
-        }
-
-        public string Alumno
-        {
-            get { return alumno; }
-            set { alumno = value; }
         }
 
         public EEstado Estado
@@ -64,7 +57,6 @@ namespace Entidades
         {        
             this.direccionEntrega = direccionEntrega;
             this.trackingID = trackingID;
-            this.alumno = "Baldino Braian";
         }
         #endregion
 
