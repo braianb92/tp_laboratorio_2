@@ -10,7 +10,7 @@ namespace Entidades
     public class Paquete : IMostrar<Paquete>
     {
         #region Delegates
-        public delegate void DelegadoEstado();
+        public delegate void DelegadoEstado(object sender,EventArgs args);
         #endregion
 
         #region Nested Enum
@@ -55,6 +55,7 @@ namespace Entidades
         #region Constructors
         public Paquete(string direccionEntrega,string trackingID)
         {        
+            this.estado = EEstado.Ingresado;
             this.direccionEntrega = direccionEntrega;
             this.trackingID = trackingID;
         }
@@ -74,33 +75,17 @@ namespace Entidades
 
         public void MockCicloDeVida()
         {
-            this.InformaEstado += ConsoleEstado;
+            do
+            {
+                Thread.Sleep(4000);
+                this.estado++;
+                this.InformaEstado.Invoke(this, new EventArgs());
 
-            //Instancio
-            Paquete paquete = new Paquete("Buenos Aires", "2045-001/4");
+            } while (this.Estado != EEstado.Entregado);
 
-            //Inicializo estado, espera 4 segundos y ejecuta evento que muestra estado.
-            paquete.Estado = EEstado.Ingresado;
-            Thread.Sleep(4000);
-            InformaEstado();
-
-            //Repite.
-            paquete.Estado = EEstado.EnViaje;
-            Thread.Sleep(4000);
-            InformaEstado();
-
-            //Repite.
-            paquete.Estado = EEstado.Entregado;
-            Thread.Sleep(4000);
-            InformaEstado();
-
+            PaqueteDAO.Insertar(this);
+           
         }
-
-        private void ConsoleEstado()
-        {
-            Console.WriteLine(Estado.ToString());
-        }
-
         
 
         /// <summary>

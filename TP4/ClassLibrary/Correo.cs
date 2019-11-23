@@ -22,6 +22,7 @@ namespace Entidades
         public Correo()
         {
             paquetes = new List<Paquete>();
+            mockPaquetes = new List<Thread>();
         }
 
         public void FinEntregas()
@@ -33,13 +34,13 @@ namespace Entidades
             }
         }
 
-        public string MostrarDatos(IMostrar<List<Paquete>> elementos)
+        public string MostrarDatos(IMostrar<List<Paquete>> elemento)
         {
             string retorno = string.Empty;
-            List<Paquete> paquetes = (List<Paquete>)elementos;
-            foreach (Paquete paquete in paquetes)
+            Correo correo = (Correo)elemento;
+            foreach (Paquete paquete in correo.Paquetes)
             {
-                retorno += string.Format("{0} para {1} ({2})", paquete.TrackingID, paquete.DireccionEntrega, paquete.Estado.ToString());
+                retorno += string.Format("{0} para {1} ({2})\n", paquete.TrackingID, paquete.DireccionEntrega, paquete.Estado.ToString());
             }
 
             return retorno;
@@ -56,8 +57,17 @@ namespace Entidades
 
             Thread thread = new Thread(p.MockCicloDeVida);
             c.mockPaquetes.Add(thread);
-            thread.Start();
 
+            try
+            {
+                thread.Start();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al iniciar Hilo",ex);
+            }
+            
             return c;
         }
     }

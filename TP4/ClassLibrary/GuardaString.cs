@@ -15,8 +15,9 @@ namespace ClassLibrary
             {
                 try
                 {
-                    string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                    StreamWriter sw = new StreamWriter(Path.Combine(desktop, archivo));
+                    string desktop = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), archivo);
+                    bool append = File.Exists(desktop);
+                    StreamWriter sw = new StreamWriter(desktop, append);
                     sw.WriteLine(texto);
                     sw.Close();
                 }

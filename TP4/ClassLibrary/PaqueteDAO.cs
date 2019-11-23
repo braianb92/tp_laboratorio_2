@@ -23,23 +23,23 @@ namespace Entidades
             comando.CommandType = System.Data.CommandType.Text;
             // ESTABLEZCO LA CONEXION
             comando.Connection = conexion;
+
         }
 
         public static bool Insertar(Paquete paquete)
         {
-            string sql = "INSERT INTO " + "Paquetes" + " (direccionEntrega,trackingID,alumno) ";
-
-            sql = sql + "SELECT '" + paquete.DireccionEntrega + "','" + paquete.TrackingID + "','" + "Baldino Braian" + "' UNION ALL' ";
+            bool retorno = false;
+            if (paquete is null) return retorno;
 
             try
-            {
-                sql = sql.Substring(0, sql.Length - 11);
-                // LE PASO LA INSTRUCCION SQL
-                comando.CommandText = sql;
-                // ABRO LA CONEXION A LA BD
-                conexion.Open();
-                // EJECUTO EL COMMAND
-                comando.ExecuteNonQuery();
+            {         
+                    // LE PASO LA INSTRUCCION SQL
+                    comando.CommandText =  String.Format($"INSERT INTO dbo.Paquetes(direccionEntrega, trackingID, alumno) VALUES('{paquete.DireccionEntrega}', '{paquete.TrackingID}', 'Braian Baldino')");
+                    // ABRO LA CONEXION A LA BD
+                    conexion.Open();
+                    // EJECUTO EL COMMAND
+                    comando.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {
@@ -48,10 +48,14 @@ namespace Entidades
             finally
             {
                 if (conexion.State == ConnectionState.Open)
+                {
                     conexion.Close();
+                    retorno = true;
+                }
+                    
                 
             }
-            return true;
+            return retorno;
         }
 
     }
