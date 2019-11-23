@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace Entidades
 {
     public static class GuardaString
     {
@@ -16,8 +16,7 @@ namespace ClassLibrary
                 try
                 {
                     string desktop = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), archivo);
-                    bool append = File.Exists(desktop);
-                    StreamWriter sw = new StreamWriter(desktop, append);
+                    StreamWriter sw = new StreamWriter(desktop);
                     sw.WriteLine(texto);
                     sw.Close();
                 }
