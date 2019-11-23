@@ -49,7 +49,10 @@ namespace Test_Unitarios
             correo += paquete2;
             correo += paquete3;
 
-            Assert.IsTrue(GuardaString.Guardar(correo.MostrarDatos(correo),"correo.txt"));
+            string metodoExtension = correo.MostrarDatos(correo);
+           
+            Assert.IsTrue(metodoExtension.Guardar("correo.txt"));
+            correo.FinEntregas();
 
         }
 
@@ -62,5 +65,7 @@ namespace Test_Unitarios
             Assert.IsTrue(PaqueteDAO.Insertar(paquete));
         }
         #endregion
+
+
     }
 }

@@ -10,9 +10,15 @@ namespace Entidades
 {
     public static class PaqueteDAO
     {
+        #region Atributes
         private static SqlCommand comando;
         private static SqlConnection conexion;
+        #endregion
 
+        #region Static Constructor
+        /// <summary>
+        /// Crea la conexion a la base de datos ya preestablecida y establece el tipo de comando (text).
+        /// </summary>
         static PaqueteDAO()
         {
             // CREO UN OBJETO SQLCONECTION
@@ -25,7 +31,14 @@ namespace Entidades
             comando.Connection = conexion;
 
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Guarda los datos en la base de datos.
+        /// </summary>
+        /// <param name="paquete"></param>
+        /// <returns></returns>
         public static bool Insertar(Paquete paquete)
         {
             bool retorno = false;
@@ -57,6 +70,7 @@ namespace Entidades
             }
             return retorno;
         }
+        #endregion
 
     }
 }

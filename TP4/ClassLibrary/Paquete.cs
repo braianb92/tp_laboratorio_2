@@ -53,6 +53,11 @@ namespace Entidades
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Constructor que recibe dos parametros e inicializa por defecto el estado en "Ingresado".
+        /// </summary>
+        /// <param name="direccionEntrega"></param>
+        /// <param name="trackingID"></param>
         public Paquete(string direccionEntrega,string trackingID)
         {        
             this.estado = EEstado.Ingresado;
@@ -73,6 +78,11 @@ namespace Entidades
             return string.Format("{0} para {1}", paquete.TrackingID, paquete.DireccionEntrega);
         }
 
+        /// <summary>
+        /// Cambia el estado de entrega de los paquetes cada 4 segundos.
+        /// Utiliza evento. Al llegar al estado de "Entregado", el paquete
+        /// se guarda en la base de datos.
+        /// </summary>
         public void MockCicloDeVida()
         {
             do
@@ -100,11 +110,23 @@ namespace Entidades
         #endregion
 
         #region Operator Overloads
+        /// <summary>
+        /// Los paquetes seran iguales si y solo si sus trackingID son iguales.
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
         public static bool operator == (Paquete p1,Paquete p2)
         {
             return (p1.trackingID == p2.trackingID);
         }
 
+        /// <summary>
+        /// Seran distintos si y solo si sus trackingID son distintos.
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
         public static bool operator !=(Paquete p1, Paquete p2)
         {
             return !(p1==p2);

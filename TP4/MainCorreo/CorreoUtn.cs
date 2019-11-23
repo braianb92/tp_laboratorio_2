@@ -52,7 +52,6 @@ namespace MainCorreo
             this.MostrarInformacion<Paquete>((IMostrar<Paquete>)listBoxEntregado.SelectedItem);
         }
 
-
         private void paq_InformaEstado(object sender,EventArgs e)
         {
             if (this.InvokeRequired)

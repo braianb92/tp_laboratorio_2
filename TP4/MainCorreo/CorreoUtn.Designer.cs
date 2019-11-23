@@ -36,8 +36,6 @@
             this.listBoxEntregado = new System.Windows.Forms.ListBox();
             this.listBoxEnViaje = new System.Windows.Forms.ListBox();
             this.listBoxIngresado = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupPaquete = new System.Windows.Forms.GroupBox();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -46,9 +44,11 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblTracking = new System.Windows.Forms.Label();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupEstados.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.groupPaquete.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupEstados
@@ -95,6 +95,7 @@
             // 
             // listBoxEntregado
             // 
+            this.listBoxEntregado.ContextMenuStrip = this.contextMenuStrip1;
             this.listBoxEntregado.FormattingEnabled = true;
             this.listBoxEntregado.Location = new System.Drawing.Point(539, 53);
             this.listBoxEntregado.Name = "listBoxEntregado";
@@ -111,26 +112,11 @@
             // 
             // listBoxIngresado
             // 
-            this.listBoxIngresado.ContextMenuStrip = this.contextMenuStrip1;
             this.listBoxIngresado.FormattingEnabled = true;
             this.listBoxIngresado.Location = new System.Drawing.Point(17, 53);
             this.listBoxIngresado.Name = "listBoxIngresado";
             this.listBoxIngresado.Size = new System.Drawing.Size(203, 225);
             this.listBoxIngresado.TabIndex = 0;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(116, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
-            this.toolStripMenuItem1.Text = "Mostrar";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // groupPaquete
             // 
@@ -209,6 +195,20 @@
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(116, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Mostrar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
+            // 
             // CorreoUtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +217,7 @@
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.groupPaquete);
             this.Controls.Add(this.groupEstados);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CorreoUtn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -224,9 +225,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CorreoUtn_FormClosing);
             this.groupEstados.ResumeLayout(false);
             this.groupEstados.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.groupPaquete.ResumeLayout(false);
             this.groupPaquete.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

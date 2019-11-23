@@ -9,21 +9,34 @@ namespace Entidades
 {
     public class Correo : IMostrar<List<Paquete>>
     {
+        #region Atributes
         private List<Thread> mockPaquetes;
         private List<Paquete> paquetes;
+        #endregion
 
+        #region Properties
         public List<Paquete> Paquetes
         {
             get { return paquetes; }
             set { paquetes = value; }
         }
+        #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Constructor que inicializa las listas.
+        /// </summary>
         public Correo()
         {
             paquetes = new List<Paquete>();
             mockPaquetes = new List<Thread>();
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Recorre la lista de threads y finaliza los que esten activos.
+        /// </summary>
         public void FinEntregas()
         {
             foreach (Thread thread in mockPaquetes)
@@ -33,6 +46,12 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Metodo implementado de la interfaz "IMostrar<T>."
+        /// Recorre la lista de paquetes y devuelve toda su informacion.
+        /// </summary>
+        /// <param name="elemento"></param>
+        /// <returns></returns>
         public string MostrarDatos(IMostrar<List<Paquete>> elemento)
         {
             string retorno = string.Empty;
@@ -44,7 +63,17 @@ namespace Entidades
 
             return retorno;
         }
+        #endregion
 
+        #region Operator Overloads
+        /// <summary>
+        /// Añade un paquete al correo solo si este no se encuentra en ella.
+        /// Una vez agregado, inicia un hilo con el metodo "MockCicloDeVida".
+        /// Tamien añade este hilo a la lista de hilos de la instancia actual del correo.
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
         public static Correo operator + (Correo c, Paquete p)
         {
             foreach (Paquete paquete in c.Paquetes)
@@ -69,5 +98,6 @@ namespace Entidades
             
             return c;
         }
+        #endregion
     }
 }
