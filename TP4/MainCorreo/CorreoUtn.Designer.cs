@@ -34,6 +34,8 @@
             this.lblEnViaje = new System.Windows.Forms.Label();
             this.lblIngresado = new System.Windows.Forms.Label();
             this.listBoxEntregado = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxEnViaje = new System.Windows.Forms.ListBox();
             this.listBoxIngresado = new System.Windows.Forms.ListBox();
             this.groupPaquete = new System.Windows.Forms.GroupBox();
@@ -44,11 +46,11 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblTracking = new System.Windows.Forms.Label();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupEstados.SuspendLayout();
-            this.groupPaquete.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupPaquete.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupEstados
@@ -101,6 +103,22 @@
             this.listBoxEntregado.Name = "listBoxEntregado";
             this.listBoxEntregado.Size = new System.Drawing.Size(203, 225);
             this.listBoxEntregado.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Mostrar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // listBoxEnViaje
             // 
@@ -195,19 +213,19 @@
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
-            // contextMenuStrip1
+            // toolStripMenuItem2
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(116, 26);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Modificar";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // toolStripMenuItem1
+            // eliminarToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "Mostrar";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // CorreoUtn
             // 
@@ -225,9 +243,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CorreoUtn_FormClosing);
             this.groupEstados.ResumeLayout(false);
             this.groupEstados.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupPaquete.ResumeLayout(false);
             this.groupPaquete.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -251,6 +269,8 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }
 

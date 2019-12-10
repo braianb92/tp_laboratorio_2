@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
@@ -53,6 +54,8 @@ namespace Entidades
         #endregion
 
         #region Constructors
+        public Paquete() { }
+
         /// <summary>
         /// Constructor que recibe dos parametros e inicializa por defecto el estado en "Ingresado".
         /// </summary>

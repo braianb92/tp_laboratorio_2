@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using ClassLibrary;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,7 +71,8 @@ namespace MainCorreo
             if (elemento != null && (elemento is Paquete || elemento is Correo))
             {
                 richTextBox.Text = elemento.MostrarDatos(elemento);
-                GuardaString.Guardar(elemento.MostrarDatos(elemento), "salida.txt");                       
+                GuardaString.Guardar(elemento.MostrarDatos(elemento), "salida.txt");
+                SerializadorXml<Correo>.GuardarXml("salida.xml", (Correo) elemento);
             }
         }
 
@@ -104,6 +106,23 @@ namespace MainCorreo
             correo.FinEntregas();
         }
 
-        
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UpdateForm modificarForm = new UpdateForm((Paquete)listBoxEntregado.SelectedItem);
+            modificarForm.ShowDialog();
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Paquete paquete = (Paquete) listBoxEntregado.SelectedItem;
+            if (PaqueteDAO.Eliminar(paquete.TrackingID))
+            {
+                MessageBox.Show($"Paquete {paquete.TrackingID} Eliminado");
+                listBoxEntregado.ClearSelected();
+            }
+                
+            else
+                MessageBox.Show($"No se pudo eliminar paquete {paquete.TrackingID}");
+        }
     }
 }

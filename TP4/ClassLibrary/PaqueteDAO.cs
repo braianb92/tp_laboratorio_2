@@ -70,6 +70,66 @@ namespace Entidades
             }
             return retorno;
         }
+
+        public static bool Modificar(Paquete paquete, string direccion)
+        {
+            bool retorno = false;
+
+            if (paquete is null) return retorno;
+
+            try
+            {
+                comando.CommandText = String.Format($"UPDATE dbo.Paquetes SET direccionEntrega = '{direccion}' WHERE trackingID = '{paquete.TrackingID}'");
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error en base de datos", ex);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                    retorno = true;
+                }
+            }
+            
+            return retorno;
+
+        }
+
+        public static bool Eliminar(string trackingID)
+        {
+            bool retorno = false;
+
+            if (string.IsNullOrEmpty(trackingID)) return retorno;
+
+            try
+            {
+                comando.CommandText = String.Format($"DELETE FROM dbo.Paquetes WHERE trackingID = '{trackingID}'");
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error en base de datos", ex);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                    retorno = true;
+                }
+            }
+
+            return retorno;
+
+        }
         #endregion
 
     }
